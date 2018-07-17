@@ -13,7 +13,7 @@ Downloading
 -----------
 
 HUGIN QGIS Plugin can be obtained from [QGIS Plugin repository](https://plugins.qgis.org/plugins/HUGIN_QGIS/) or from
-[HUGIN QGIS on GitHub](https://github.com/huginexpert/HUGIN-QGIS/raw/master/src/HUGIN_QGIS.zip)
+[HUGIN QGIS on GitHub](https://github.com/huginexpert/HUGIN-QGIS/releases/)
 
 
 Documentation
