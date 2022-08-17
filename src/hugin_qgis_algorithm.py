@@ -43,8 +43,8 @@ import numpy as np
 import os
 
 from osgeo import gdal
-from gdalconst import *
-import osr
+from osgeo import gdalconst
+from osgeo import osr
 
 import tempfile
 
@@ -57,7 +57,7 @@ def loadConfig(path):
     return config
 
 def loadRaster(path):
-    ds = gdal.Open(path, GA_ReadOnly)
+    ds = gdal.Open(path, gdal.GA_ReadOnly)
     if ds is None:
         raise QgsProcessingException("Cannot open raster '{}'.".format(path))
     return ds
@@ -234,7 +234,7 @@ def alignRaster(refDS, inputDS, outputFile):
         outputDS.GetRasterBand(i+1).SetNoDataValue(NoDataValue)
     outputDS.SetGeoTransform(referenceTrans)
     outputDS.SetProjection(referenceProj)
-    res = gdal.ReprojectImage(inputDS, outputDS, inputProj, referenceProj, GRA_Bilinear)
+    res = gdal.ReprojectImage(inputDS, outputDS, inputProj, referenceProj, gdal.GRA_Bilinear)
     if res != 0:
         raise QgsProcessingException("GDAL ReprojectImage failed with {} on '{}'".format(res, outputFile))
     # flush changes to disk
